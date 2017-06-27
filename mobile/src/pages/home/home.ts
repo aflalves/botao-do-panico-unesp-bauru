@@ -13,8 +13,17 @@ export class HomePage {
     lng: 0
   };
 
+   emergencyCounter = 0;
+  
   constructor(public navCtrl: NavController, private geolocation: Geolocation) {
+  }
 
+  onEmergencyButton() {
+    console.log("emergency clicked", this.emergencyCounter);
+     this.emergencyCounter++;
+     if (this.emergencyCounter > 4) {
+       this.onLocate();
+     }
   }
 
   onLocate() {
