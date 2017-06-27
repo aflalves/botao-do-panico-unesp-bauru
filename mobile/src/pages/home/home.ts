@@ -14,14 +14,17 @@ export class HomePage {
   };
 
    emergencyCounter = 0;
+   counter = " vezes";
   
   constructor(public navCtrl: NavController, private geolocation: Geolocation) {
   }
 
   onEmergencyButton() {
-    console.log("emergency clicked", this.emergencyCounter);
      this.emergencyCounter++;
-     if (this.emergencyCounter > 4) {
+     if (this.emergencyCounter == 2) {
+       this.counter = " vez"
+     }
+     if (this.emergencyCounter > 2) {
        this.onLocate();
      }
   }

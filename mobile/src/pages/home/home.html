@@ -10,15 +10,9 @@
     <ion-grid>
       <ion-row>
         <ion-col>
-          <button
-            ion-button
-            block
-            outline
-            type="button"
-            icon-left
-            (click)="onEmergencyButton()">
+          <button ion-button block outline type="button" icon-left (click)="onEmergencyButton()">
             <ion-icon name="locate"></ion-icon>
-            Mostrar localização {{5 - emergencyCounter}}
+            Mostrar localização 
           </button>
         </ion-col>
       </ion-row>
@@ -31,5 +25,7 @@
   <ion-row>
     Longitude: {{location.lng}}
   </ion-row>
+
+  <div *ngIf="emergencyCounter > 0 && emergencyCounter < 3">Pressione mais {{3 - emergencyCounter}} {{counter}} para acionar o socorro</div>
 
 </ion-content>
