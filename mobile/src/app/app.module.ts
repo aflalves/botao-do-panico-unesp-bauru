@@ -9,6 +9,18 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase  } from 'angularfire2/database';
+
+export const firebaseConfig = {
+    apiKey: "AIzaSyBa9SaixW_S7iccKiIq_QNeWkPuF1MI-yY",
+    authDomain: "botao-do-panico-unesp-bauru.firebaseapp.com",
+    databaseURL: "https://botao-do-panico-unesp-bauru.firebaseio.com",
+    projectId: "botao-do-panico-unesp-bauru",
+    storageBucket: "botao-do-panico-unesp-bauru.appspot.com",
+    messagingSenderId: "618488360157"
+}
+
 @NgModule({
   declarations: [
     MyApp,
@@ -16,7 +28,8 @@ import { Geolocation } from '@ionic-native/geolocation';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    AngularFireModule.initializeApp(firebaseConfig)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -24,6 +37,7 @@ import { Geolocation } from '@ionic-native/geolocation';
     HomePage
   ],
   providers: [
+    AngularFireDatabase,
     StatusBar,
     SplashScreen,
     Geolocation,
