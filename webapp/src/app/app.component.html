@@ -1,11 +1,33 @@
 <!--The whole content below can be removed with the new code.-->
 <div style="text-align:center">
   <h1>
-    Olá Mundo!!!
+   {{title}}
   </h1>
 </div>
-<h2>Este é o aplicativo web back-office do {{title}}!!</h2>
-<ul>
 
-</ul>
+<div class="container">
 
+  <table class="table table-hover table-bordered">
+    <thead> 
+    <tr>
+      <th style="width: 20%;">ID da Ocorrência</th>
+      <th style="width: 15%;">Nome da Vítima</th>
+      <th style="width: 15%;">Telefone</th>
+      <th>Latitude</th> 
+      <th>Longitude</th>
+      <th style="width: 15%;">Status</th>
+      </tr>
+    </thead>
+
+    <tbody> 
+      <tr *ngFor="let panic of panics | async"> 
+        <td>{{panic.id}}</td>
+        <td>{{panic.nome}}</td>
+        <td>{{panic.telefone}}</td> 
+        <td>{{panic.lat}}</td> 
+        <td>{{panic.lng}}</td>
+        <td>{{panic.status}}</td>
+      </tr> 
+    </tbody>
+  </table>
+</div>

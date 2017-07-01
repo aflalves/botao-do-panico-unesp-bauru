@@ -12,3 +12,13 @@ Install geolocation plugin: ionic cordova plugin add cordova-plugin-geolocation
 
 #Running the project 
 npm run ionic:serve
+
+#Build mobile app
+ionic cordova build android
+
+#run android
+ionic cordova run android --device
+
+#webapp
+ng build --prod
+firebase deploy

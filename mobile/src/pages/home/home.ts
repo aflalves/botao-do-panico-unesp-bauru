@@ -6,6 +6,8 @@ import { AlertController } from 'ionic-angular';
 
 import { AngularFireDatabase, FirebaseListObservable  } from 'angularfire2/database';
 
+import { Sim } from '@ionic-native/sim';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -16,19 +18,39 @@ export class HomePage {
     lng: 0
   };
 
-   emergencyCounter = 0;
-   counter = " vezes";
+  emergencyCounter = 0;
+  counter = " vezes";
+  phoneNumber;
 
-   panics: FirebaseListObservable<any>;
+  panics: FirebaseListObservable<any>;
   
-  constructor(public navCtrl: NavController, private geolocation: Geolocation,  public alertCtrl: AlertController, angularFireDB : AngularFireDatabase) {
+  constructor(public navCtrl: NavController, private geolocation: Geolocation,  public alertCtrl: AlertController, angularFireDB : AngularFireDatabase, public sim: Sim) {
     this.panics = angularFireDB.list('/panics');
   }
 
   //called when page is loaded
   ionViewDidLoad() {
+    this.sim.requestReadPermission().then(
+      () => {
+        console.log('Permission granted')
+        this.getSimInfo();
+      },
+      () =>  {
+        console.log('Permission not granted')
+      },
+    );
     console.log("I'm alive!");
-    this.getDeviceLocation();
+  }
+
+  getSimInfo() {
+    this.sim.getSimInfo().then(
+      (info) => {
+        this.phoneNumber = info.phoneNumber;
+      },
+      (err) => {
+        console.log('Unable to get sim info: ', err)
+      }
+    );
   }
 
   //called when emergency button is pressed
@@ -64,10 +86,19 @@ export class HomePage {
   }
 
   sendLocation() {
+
+    var newRef = this.panics.push({}).key;
+
+    console.log("this.phoneNumber", this.phoneNumber);
+
     var panic = {
-      "user_id" : 13,
+      "id" : newRef,
+      "nome" : "Nome cadastrado",
+      "telefone" : this.phoneNumber,
       "lat" : this.location.lat,
-      "lng" : this.location.lng
+      "lng" : this.location.lng,
+      "status": "Nova"
+
     };
 
     this.panics.push(panic);

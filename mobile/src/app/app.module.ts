@@ -12,6 +12,8 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase  } from 'angularfire2/database';
 
+import { Sim } from '@ionic-native/sim';
+
 export const firebaseConfig = {
     apiKey: "AIzaSyBa9SaixW_S7iccKiIq_QNeWkPuF1MI-yY",
     authDomain: "botao-do-panico-unesp-bauru.firebaseapp.com",
@@ -37,6 +39,7 @@ export const firebaseConfig = {
     HomePage
   ],
   providers: [
+    Sim,
     AngularFireDatabase,
     StatusBar,
     SplashScreen,
