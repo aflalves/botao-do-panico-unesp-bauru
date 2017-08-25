@@ -10,23 +10,23 @@
   <table class="table table-hover table-bordered">
     <thead> 
     <tr>
-      <th style="width: 20%;">ID da Ocorrência</th>
-      <th style="width: 15%;">Nome da Vítima</th>
-      <th style="width: 15%;">Telefone</th>
-      <th>Latitude</th> 
-      <th>Longitude</th>
+      <th style="width: 10%;">ID da Ocorrência</th>
+      <th style="width: 10%;">Nome da Vítima</th>
       <th style="width: 15%;">Status</th>
+      <th style="width: 45%;">Mapa</th>
       </tr>
     </thead>
 
     <tbody> 
       <tr *ngFor="let panic of panics | async"> 
         <td>{{panic.id}}</td>
-        <td>{{panic.nome}}</td>
-        <td>{{panic.telefone}}</td> 
-        <td>{{panic.lat}}</td> 
-        <td>{{panic.lng}}</td>
+        <td>{{panic.nome}}</td> 
         <td>{{panic.status}}</td>
+        <td>
+           <agm-map [zoom]="18" [usePanning]="true" [streetViewControl]="false" [mapTypeId]="'hybrid'" [latitude]="panic.lat" [longitude]="panic.lng">
+              <agm-marker [latitude]="panic.lat" [longitude]="panic.lng"></agm-marker> 
+          </agm-map> 
+      </td>
       </tr> 
     </tbody>
   </table>

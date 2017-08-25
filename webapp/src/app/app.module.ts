@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase  } from 'angularfire2/database';
 
+import { AgmCoreModule } from '@agm/core';
+
 export const firebaseConfig = {
     apiKey: "AIzaSyBa9SaixW_S7iccKiIq_QNeWkPuF1MI-yY",
     authDomain: "botao-do-panico-unesp-bauru.firebaseapp.com",
@@ -21,7 +23,10 @@ export const firebaseConfig = {
   ],
   imports: [
     BrowserModule,
-    AngularFireModule.initializeApp(firebaseConfig)
+    AngularFireModule.initializeApp(firebaseConfig),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyClNFPrkwLx2Ix2L3pQ50yDn2tH7ZXjlUw'
+    })
   ],
   providers: [
     AngularFireDatabase

@@ -32,14 +32,14 @@ export class HomePage {
   ionViewDidLoad() {
     this.sim.requestReadPermission().then(
       () => {
-        console.log('Permission granted')
+        //console.log('Permission granted')
         this.getSimInfo();
       },
       () =>  {
-        console.log('Permission not granted')
+        //console.log('Permission not granted')
       },
     );
-    console.log("I'm alive!");
+    console.log("Terminou de carregar a view");
   }
 
   getSimInfo() {
@@ -61,7 +61,6 @@ export class HomePage {
      }
      if (this.emergencyCounter > 2) {
        this.getDeviceLocation();
-       console.log("after on locate");
      }
   }
 
@@ -89,12 +88,10 @@ export class HomePage {
 
     var newRef = this.panics.push({}).key;
 
-    console.log("this.phoneNumber", this.phoneNumber);
-
     var panic = {
       "id" : newRef,
       "nome" : "Nome cadastrado",
-      "telefone" : this.phoneNumber,
+      //"telefone" : this.phoneNumber,
       "lat" : this.location.lat,
       "lng" : this.location.lng,
       "status": "Nova"
