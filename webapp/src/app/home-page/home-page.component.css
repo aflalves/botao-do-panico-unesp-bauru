@@ -1,0 +1,30 @@
+agm-map {
+    height: 150px;
+  }
+
+  tr.row-name
+  {
+      font-size: 16px;
+      color:#448aff;
+  }
+  
+  tr.row-content
+  {
+      color:#6c7173;
+  }
+
+  .table-striped>tbody>tr:nth-of-type(odd)
+  {
+      background:#F0F2F2 !important; 
+  }
+  
+  a.btn-danger:hover
+  {
+      background: #de6c69;
+  }
+  
+  a.btn-danger
+  {
+      background:#d9534f;  
+  }
+  

@@ -1,0 +1,39 @@
+<div style="text-align:center">
+  <h1>
+   {{title}}
+  </h1>
+</div>
+
+<app-logout></app-logout>
+
+<div class="container">
+
+  <table class="table table-striped table-bordered">
+    <thead> 
+    <tr class="row-name">
+      <th style="width: 10%;">Nome</th>
+      <th style="width: 15%;">Telefone</th>
+      <th style="width: 15%;">Status</th>
+      <th style="width: 5%;">Abrir</th>
+      </tr>
+    </thead>
+
+    <tbody> 
+      <tr *ngFor="let panic of panics | async" class="row-content">
+        <td>{{panic.nome}}</td> 
+        <td>{{panic.telefone}}</td>
+        <td><span class="label label-danger"> {{panic.status}} </span></td> <!-- mudar essa classe conforme mudança de status-->
+        <!--td>
+           <agm-map [zoom]="18" [usePanning]="true" [streetViewControl]="false" [mapTypeId]="'hybrid'" [latitude]="panic.lat" [longitude]="panic.lng">
+              <agm-marker [latitude]="panic.lat" [longitude]="panic.lng"></agm-marker> 
+          </agm-map>
+      </td-->
+      <td>
+          <a class="btn btn-primary btn-s" href="path/to/settings" aria-label="Opções">
+            <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
+          </a>
+       </td>
+      </tr> 
+    </tbody>
+  </table>
+</div>
