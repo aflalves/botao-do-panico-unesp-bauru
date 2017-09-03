@@ -21,4 +21,5 @@ ionic cordova run android --device
 
 #webapp: 
 ng build --prod --aot=false
+
 firebase deploy
