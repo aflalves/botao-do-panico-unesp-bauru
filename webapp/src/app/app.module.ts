@@ -12,10 +12,13 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
+import { PanicPopupComponent } from './panic-popup/panic-popup.component';
 
 import { AuthService } from './providers/auth.service';
 import { LogoutComponent } from './logout/logout.component';
+import { MaterialModule } from '@angular/material'
 
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyBa9SaixW_S7iccKiIq_QNeWkPuF1MI-yY",
@@ -36,21 +39,28 @@ const appRoutes: Routes = [
     AppComponent,
     LoginPageComponent,
     HomePageComponent,
-    LogoutComponent
+    LogoutComponent,
+    PanicPopupComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AngularFireAuthModule,
+    MaterialModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(appRoutes),
     AngularFireModule.initializeApp(firebaseConfig),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyClNFPrkwLx2Ix2L3pQ50yDn2tH7ZXjlUw'
     })
   ],
+  exports: [
+    MaterialModule
+  ],
   providers: [
     AngularFireDatabase, AuthService
   ],
+  entryComponents: [PanicPopupComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

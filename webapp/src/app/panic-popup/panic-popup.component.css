@@ -1,0 +1,20 @@
+agm-map {
+    height: 420px;
+  }
+
+.md-toolbar-tools {
+  color: #448aff;
+}
+.mat-toolbar {
+  background: white;
+}
+
+.example-header-image {
+  background-image: url('../../assets/img/shiba1.jpg');
+  background-size: cover;
+}
+
+.mat-card {
+  padding: 0px 0px 0px 0px;
+  box-shadow: 0px 0px 0px 0px !important;
+}

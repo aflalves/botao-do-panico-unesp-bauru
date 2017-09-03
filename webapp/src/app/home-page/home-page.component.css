@@ -1,8 +1,4 @@
-agm-map {
-    height: 150px;
-  }
-
-  tr.row-name
+tr.row-name
   {
       font-size: 16px;
       color:#448aff;
@@ -26,5 +22,21 @@ agm-map {
   a.btn-danger
   {
       background:#d9534f;  
+  }
+
+  .example-icon {
+    padding: 0 14px;
+  }
+  
+  .example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .logout {
+     width: 90%; 
+  }
+
+  .label {
+    font-size: 100%;
   }
   
