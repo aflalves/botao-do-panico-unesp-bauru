@@ -133,6 +133,7 @@ export class HomePage {
             if (status != "Nova") {
               sub.unsubscribe();
               console.log("Encerrado.");
+              this.alertFim();
             } else {
               panic.ref = ref.key;
               console.log("updating location", panic);
@@ -206,6 +207,16 @@ export class HomePage {
     let alert = this.alertCtrl.create({
       title: titulo,
       subTitle: mensagem,
+      buttons: ['OK']
+    });
+
+    alert.present();
+  }
+
+  alertFim() {
+    let alert = this.alertCtrl.create({
+      title: "Ocorrência finalizada",
+      subTitle: "Sua ocorrência foi finalizada pela vigilância do campus.",
       buttons: ['OK']
     });
 
