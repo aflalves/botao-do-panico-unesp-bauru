@@ -23,3 +23,7 @@ ionic cordova run android --device
 ng build --prod --aot=false
 
 firebase deploy
+
+Policy:
+
+This Mobile Application will access your geolocation and SIM information.
