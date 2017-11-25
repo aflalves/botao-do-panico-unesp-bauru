@@ -10,7 +10,7 @@
       <ion-row style="padding-top: 10%;">
           <ion-col>
             <a (click)="onEmergencyButton()">
-              <img src="assets/img/botao.png">
+              <img src="assets/img/botao.png" [class.disablePanic]="disablePanic">
             </a>
           </ion-col>
       </ion-row>

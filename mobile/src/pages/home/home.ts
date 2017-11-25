@@ -4,7 +4,7 @@ import { Location } from '../../models/location';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AlertController } from 'ionic-angular';
 import { CallNumber } from '@ionic-native/call-number';
-import {Observable} from 'rxjs/Rx';
+import { Observable } from 'rxjs/Rx';
 
 import { AngularFireDatabase, FirebaseListObservable  } from 'angularfire2/database';
 
@@ -24,11 +24,13 @@ export class HomePage {
   phoneNumber;
   panics: FirebaseListObservable<any>;
   name: string;
+  disablePanic: boolean
   
   constructor(public navCtrl: NavController, public navParam: NavParams, private geolocation: Geolocation, private callNumber: CallNumber,
               public alertCtrl: AlertController, public angularFireDB : AngularFireDatabase, public sim: Sim) {
     this.panics = angularFireDB.list('/panics')
     this.name = this.navParam.get('name');
+    this.disablePanic = true;
   }
 
   //called when page is loaded
@@ -70,7 +72,7 @@ export class HomePage {
 
   onTestEmergency() {
     console.log("onTestEmergency");
-    this.geolocation.getCurrentPosition()
+    this.geolocation.getCurrentPosition({timeout: 1000})
     .then(
       location => {
         console.log("location = ", location);
@@ -78,12 +80,14 @@ export class HomePage {
         this.location.lng = location.coords.longitude;
         //call web service sending the location and user id
         this.showTestAlert(true);
+        this.disablePanic = false;
       }
     )
     .catch(
       error => {
         console.log("Erro para obter a localização");
         this.showTestAlert(false);
+        this.disablePanic = true;
       } 
     );
   }
@@ -179,7 +183,7 @@ export class HomePage {
   showErrorAlert() {
     let alert = this.alertCtrl.create({
       title: 'Socorro não acionado!',
-      subTitle: 'Verfique se o GPS está ligado e se há conexão com a Internet',
+      subTitle: 'Verfique se o GPS está ligado e se há conexão com a Internet.',
       buttons: ['OK']
     });
     alert.present();
@@ -195,7 +199,7 @@ export class HomePage {
       this.status = "Pronto para enviar.";
     } else {
       titulo = 'Erro no teste';
-      mensagem = 'Não foi possível obter a localização. Verifique se o GPS está ligado e se há conexão com a Internet.';
+      mensagem = 'Não foi possível obter a localização. Verifique se o GPS está ligado e se há conexão com a Internet. Se persistir, reinicie o aplicativo.';
       this.status = "Erro de conexão ou GPS.";
     }
 
