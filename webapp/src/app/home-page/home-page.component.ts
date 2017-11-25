@@ -8,6 +8,7 @@ import {PanicPopupComponent} from '../panic-popup/panic-popup.component'
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.css']
 })
+
 export class HomePageComponent implements OnInit {
 
   panics: FirebaseListObservable<any>;

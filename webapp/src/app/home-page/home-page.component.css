@@ -39,4 +39,11 @@ tr.row-name
   .label {
     font-size: 100%;
   }
+
+  .toolbar {
+      background-color: #336fb7;
+  }
   
+  .table > tbody > tr > td {
+    vertical-align: middle;
+}

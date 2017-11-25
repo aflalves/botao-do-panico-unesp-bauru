@@ -3,55 +3,19 @@
 
         <md-card class="example-card">
             <md-card-header>
-                <div md-card-avatar class="example-header-image"></div>
+                <div md-card-avatar class="example-header-image" style="margin-bottom: 5px"></div>
                 <md-card-title>{{panic.nome}}</md-card-title>
-                <md-card-subtitle>+5514981984968</md-card-subtitle>
+                <md-card-subtitle>{{panic.data}}</md-card-subtitle>
               </md-card-header>
 
               <md-card-content>
                   <div class="md-dialog-content">
-                      <agm-map [zoom]="18" [usePanning]="true" [streetViewControl]="false" [mapTypeId]="'hybrid'" [latitude]="panic.lat" [longitude]="panic.lng">
+                      <agm-map [zoom]="19" [usePanning]="true" [streetViewControl]="false" [mapTypeId]="'hybrid'" [latitude]="panic.lat" [longitude]="panic.lng">
                          <agm-marker [latitude]="panic.lat" [longitude]="panic.lng"></agm-marker> 
                      </agm-map>
                    </div>
               </md-card-content>
-              
- 
         </md-card>
-
-        <!--
-
-      <md-toolbar>
-        <div class="md-toolbar-tools">
-          <h4 *ngIf="panic.status == 'Nova'">Dados da vítima</h4>
-          <h4 *ngIf="panic.status == 'Atendida'">Localização da ocorrência</h4>
-          
-        </div>
-      </md-toolbar>
-
-      <md-dialog-content>
-        <p style="margin: 0 0 10px 20px;">
-          <label> Nome: {{panic.nome}} </label> <br>
-          <label> Telefone: {{panic.telefone}} </label>
-        </p>
-
-      </md-dialog-content>
-
-      <md-toolbar>
-        <div class="md-toolbar-tools">
-          <h1 *ngIf="panic.status == 'Nova'">Localização da vítima</h1>
-          <h1 *ngIf="panic.status == 'Atendida'">Localização da ocorrência</h1>
-          
-        </div>
-      </md-toolbar>
-  
-      <md-dialog-content>
-        <div class="md-dialog-content">
-           <agm-map [zoom]="18" [usePanning]="true" [streetViewControl]="false" [mapTypeId]="'hybrid'" [latitude]="panic.lat" [longitude]="panic.lng">
-              <agm-marker [latitude]="panic.lat" [longitude]="panic.lng"></agm-marker> 
-          </agm-map>
-        </div>
-      </md-dialog-content-->
   
       <md-dialog-actions layout="row" class="pull-right">
         <span flex></span>

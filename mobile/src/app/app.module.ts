@@ -16,7 +16,8 @@ import { AngularFireDatabase  } from 'angularfire2/database';
 
 import { Sim } from '@ionic-native/sim';
 
-import {Facebook, FacebookLoginResponse} from '@ionic-native/facebook';
+import {Facebook} from '@ionic-native/facebook';
+import { CallNumber } from '@ionic-native/call-number';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyBa9SaixW_S7iccKiIq_QNeWkPuF1MI-yY",
@@ -51,6 +52,7 @@ export const firebaseConfig = {
     SplashScreen,
     Geolocation,
     Facebook,
+    CallNumber,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
   ]
 })

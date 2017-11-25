@@ -1,31 +1,51 @@
 <ion-header>
-  <ion-navbar>
-    <ion-title>Botão do pânico Unesp Bauru</ion-title>
-  </ion-navbar>
+  <ion-title text-center style="margin:5%">Botão do pânico Unesp Bauru</ion-title>
 </ion-header>
 
 <ion-content padding>
 
   <form>
     <ion-grid>
-      <ion-row>
+
+      <ion-row style="padding-top: 10%;">
+          <ion-col>
+            <a (click)="onEmergencyButton()">
+              <img src="assets/img/botao.png">
+            </a>
+          </ion-col>
+      </ion-row>
+
+      <ion-row style="padding-top: 17%;" (click)="onTestEmergency()">
         <ion-col>
-          <button ion-button block outline type="button" icon-left (click)="onEmergencyButton()">
-            <ion-icon name="locate"></ion-icon>
-            Mostrar localização 
+          <button ion-button block outline type="button">
+            Testar socorro 
           </button>
         </ion-col>
       </ion-row>
+
+      <ion-row>
+          <ion-col>
+            Pressione para verificar se é possível enviar a localização para a central.
+          </ion-col>
+      </ion-row>
+          
+      <ion-row>
+        <ion-col>
+            Status: {{status}}
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+            Vigilância do campus: (14) 3103-6321
+            <button ion-button small outline type="button" icon-center style="margin-left: 5%;" (click)="callVigilance()">
+                <ion-icon name="call" style="font-size: 20px;color: blue;"></ion-icon>
+            </button> 
+        </ion-col>
+      </ion-row>
+      
     </ion-grid>
+
   </form>
-
-  <ion-row>
-    Latitude: {{location.lat}}
-  </ion-row>
-  <ion-row>
-    Longitude: {{location.lng}}
-  </ion-row>
-
-  <div *ngIf="emergencyCounter > 0 && emergencyCounter < 3">Pressione mais {{3 - emergencyCounter}} {{counter}} para acionar o socorro</div>
 
 </ion-content>

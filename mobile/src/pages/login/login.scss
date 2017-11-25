@@ -1,37 +1,7 @@
 page-login {
 
-    .panel {    
-        background-color: transparent;
+    ion-grid {
+        height: 100%;
     }
-    
-    .panel-body {
-        padding-top: 30px;
-        background-color: rgba(2555,255,255,.3);
-    }
-    
-    #form > div {
-        margin-bottom: 25px;
-    }
-    
-    #form > div:last-child {
-        margin-top: 10px;
-        margin-bottom: 10px;
-    }
-    
-    #loginbox {
-        margin-top: 30px;
-    }
-    
-    #loginbox > div:first-child {        
-        padding-bottom: 10px;    
-    }
-    
-    .vertical-center {
-        min-height: 100%;
-        min-height: 100vh;
-      
-        display: flex;
-        align-items: center;
-      }
 
 }

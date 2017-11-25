@@ -13,12 +13,15 @@ import { AppComponent } from './app.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { PanicPopupComponent } from './panic-popup/panic-popup.component';
+import { RelatorioPageComponent } from './relatorio-page/relatorio-page.component';
 
 import { AuthService } from './providers/auth.service';
 import { LogoutComponent } from './logout/logout.component';
 import { MaterialModule } from '@angular/material'
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
+import { ReversePipe } from './reverse.pipe';
 
 export const firebaseConfig = {
     apiKey: "AIzaSyBa9SaixW_S7iccKiIq_QNeWkPuF1MI-yY",
@@ -31,6 +34,7 @@ export const firebaseConfig = {
 
 const appRoutes: Routes = [
   { path: 'login', component: LoginPageComponent },
+  { path: 'relatorios', component: RelatorioPageComponent },
   { path: '', component: HomePageComponent }
 ];
 
@@ -40,7 +44,9 @@ const appRoutes: Routes = [
     LoginPageComponent,
     HomePageComponent,
     LogoutComponent,
-    PanicPopupComponent
+    PanicPopupComponent,
+    ReversePipe,
+    RelatorioPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,30 +1,39 @@
-<md-toolbar color="primary">
-    <span>Botão do Pânico - Unesp Bauru</span>
+<md-toolbar class="toolbar">
+    <span>Botão do Pânico - Unesp</span>
 
     <div class="logout">
       <app-logout></app-logout>
     </div>
-    </md-toolbar>
+</md-toolbar>
 
-<div class="container">
-
+<div class="container" style="min-width: 100%">
   <table class="table table-striped table-bordered">
     <thead> 
-    <tr class="row-name">
-      <th style="width: 10%;">Nome</th>
-      <th style="width: 15%;">Telefone</th>
-      <th style="width: 15%;">Status</th>
-      <th style="width: 5%;">Detalhes</th>
+    <tr class="row-name" style="color: black;">
+      <th style="width: 20%;">Nome</th>
+      <th style="width: 12%;">Campus</th>
+      <th style="width: 12%;">Data</th>
+      <th style="width: 12%;">Hora</th>
+      <th style="width: 12%;">Perfil</th>
+      <th style="width: 7%;">Status</th>
+      <th style="width: 7%;text-align: center;">Detalhes</th>
       </tr>
     </thead>
 
     <tbody> 
-      <tr *ngFor="let panic of panics | async" class="row-content">
-        <td>{{panic.nome}}</td> 
-        <td>14981984968</td>
-        <td *ngIf="panic.status == 'Atendida'"><span class="label label-success"> {{panic.status}} </span></td>
-        <td *ngIf="panic.status == 'Nova'"><span class="label label-danger"> {{panic.status}} </span></td>
-      <td>
+      <tr *ngFor="let panic of panics | async | reverse" class="row-content">
+        <td>{{panic.nome}}</td>
+        <td>Unesp Bauru</td>  
+        <td>{{panic.data.split('@')[0]}}</td>
+        <td>{{panic.data.split('@')[1]}}</td>
+        <td>Visitante</td>
+        <td *ngIf="panic.status == 'Atendida'">
+          <span class="label label-success"> {{panic.status}} </span>
+        </td>
+        <td *ngIf="panic.status == 'Nova'">
+          <span class="label label-danger"> {{panic.status}} </span>
+        </td>
+      <td style="text-align: center;">
           <a class="btn btn-primary btn-s" (click)="openDialog(panic)" aria-label="Opções">
             <i class="glyphicon glyphicon-search" aria-hidden="true"></i>
           </a>

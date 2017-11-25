@@ -1,0 +1,11 @@
+.logout {
+    width: 90%; 
+ }
+
+ .toolbar {
+    background-color: #336fb7;
+}
+
+agm-map {
+    height: 88vh;
+  }

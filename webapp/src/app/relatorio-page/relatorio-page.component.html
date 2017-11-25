@@ -1,0 +1,13 @@
+<md-toolbar class="toolbar">
+    <span>Histórico de ocorrências</span>
+
+    <div class="logout">
+      <app-logout></app-logout>
+    </div>
+</md-toolbar>
+<div style="margin-top: 5px">
+    <agm-map [zoom]="8" [streetViewControl]="false" [latitude]="-22.349694" [longitude]="-49.033528" 
+             [mapTypeId]="'roadmap'">
+       <agm-marker *ngFor="let panic of panics | async" [latitude]="panic.lat" [longitude]="panic.lng"></agm-marker> 
+   </agm-map>
+ </div>
